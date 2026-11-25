@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Los Perdidos De Sinaloa · Sitio Oficial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            ornate: ['"Cinzel Decorative"', 'serif'],
+            display: ['Syne', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#050507',
+            surface: '#0D0E14',
+            gold: '#E0B038',
+            goldSoft: '#F8DF8B',
+            crimson: '#C81D25',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050507;
+      color: #F5F5F8;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 40;
+      opacity: 0.03;
+      background-image: radial-gradient(#ffffff 0.7px, transparent 0.7px);
+      background-size: 16px 16px;
+    }
+
+    .blob-gold {
+      border-radius: 63% 37% 44% 56% / 52% 46% 54% 48%;
+    }
+    .blob-crimson {
+      border-radius: 39% 61% 65% 35% / 44% 57% 43% 56%;
+    }
+
+    .luxury-fluid {
+      border-radius: 36px 14px 40px 18px;
+      background: linear-gradient(155deg, rgba(24, 25, 35, 0.78) 0%, rgba(10, 11, 16, 0.94) 65%, rgba(6, 6, 8, 0.98) 100%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(224, 176, 56, 0.18);
+      box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(248, 223, 139, 0.12);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .luxury-fluid:hover {
+      transform: translateY(-4px);
+      border-color: rgba(224, 176, 56, 0.5);
+      box-shadow: 0 28px 65px -18px rgba(224, 176, 56, 0.22);
+    }
+
+    .gold-text {
+      background: linear-gradient(115deg, #FFF4C8 0%, #E0B038 48%, #9E6E10 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @keyframes slideDiscography {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .discography-marquee {
+      display: flex;
+      width: max-content;
+      animation: slideDiscography 58s linear infinite;
+    }
+    .discography-marquee:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold selection:text-obsidian overflow-x-hidden">
+
+  <!-- Halos ambientales -->
+  <div class="pointer-events-none fixed inset-0 overflow-hidden -z-10">
+    <div class="absolute -top-32 -left-24 w-[520px] h-[520px] blob-gold bg-gold/12 blur-[125px]"></div>
+    <div class="absolute top-1/3 -right-32 w-[500px] h-[500px] blob-crimson bg-crimson/16 blur-[135px]"></div>
+    <div class="absolute bottom-0 left-1/4 w-[580px] h-[340px] blob-gold bg-gold/6 blur-[140px]"></div>
+  </div>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="max-w-7xl mx-auto px-6 pt-4 flex items-center justify-between text-[11px] uppercase tracking-[0.22em] text-zinc-400">
+    <span class="flex items-center gap-2.5">
+      <img src="assets/logo-rb.png" alt="RB" onerror="this.style.display='none'" class="h-5 w-auto object-contain" />
+      <span data-i18n="top_location"></span>
+    </span>
+    <button id="langToggle" class="px-3 py-1 rounded-full border border-gold/30 bg-surface/80 text-goldSoft font-bold hover:bg-gold hover:text-obsidian transition cursor-pointer">
+      ES / EN
+    </button>
+  </div>
+
+  <!-- NAVEGACIÓN FLOTANTE -->
+  <header class="sticky top-3 z-50 px-4 sm:px-8 mt-2">
+    <div class="max-w-7xl mx-auto rounded-full bg-surface/85 backdrop-blur-xl border border-gold/25 px-5 sm:px-7 h-16 sm:h-18 flex items-center justify-between shadow-2xl">
+      <a href="#inicio" class="flex items-center gap-3 py-1">
+        <img
+          src="assets/logo-perdidos.png"
+          alt="Logo Los Perdidos De Sinaloa"
+          onerror="this.style.display='none'; document.getElementById('navFallback').classList.remove('hidden');"
+          class="h-8 sm:h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(224,176,56,0.4)]"
+        />
+        <span id="navFallback" class="hidden font-ornate font-black text-sm sm:text-base gold-text">
+          PERDIDOS DE SINALOA
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-5 text-xs uppercase tracking-[0.15em] font-semibold text-zinc-300">
+        <a href="#inicio" data-i18n="nav_home" class="hover:text-gold transition">Inicio</a>
+        <a href="#biografia" data-i18n="nav_bio" class="hover:text-gold transition">Biografía</a>
+        <a href="#lanzamientos" data-i18n="nav_releases" class="hover:text-gold transition">Lanzamientos</a>
+        <a href="#merch" data-i18n="nav_merch" class="hover:text-gold transition">Merch</a>
+        <a href="#galeria" data-i18n="nav_gallery" class="hover:text-gold transition">Galería</a>
+        <a href="#videos" data-i18n="nav_videos" class="hover:text-gold transition">Videos</a>
+        <a href="#contacto" data-i18n="nav_contact" class="px-4 py-2 rounded-full bg-gradient-to-r from-gold to-goldSoft text-obsidian font-bold hover:brightness-110 transition">
+          Contacto
+        </a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button id="openCartBtn" class="relative p-2.5 rounded-full border border-gold/25 text-goldSoft hover:bg-gold/10 transition" aria-label="Carrito">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+          </svg>
+          <span id="cartCount" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-crimson text-white text-[10px] font-bold flex items-center justify-center">0</span>
+        </button>
+
+        <button id="menuBtn" class="lg:hidden p-2 rounded-full border border-gold/25 text-goldSoft" aria-label="Menú">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden lg:hidden max-w-7xl mx-auto mt-2 rounded-[28px] bg-surface/95 backdrop-blur-xl border border-gold/20 p-5 space-y-3 text-xs uppercase tracking-widest font-semibold">
+      <a href="#inicio" data-i18n="nav_home" class="block py-1 text-zinc-200 hover:text-gold">Inicio</a>
+      <a href="#biografia" data-i18n="nav_bio" class="block py-1 text-zinc-200 hover:text-gold">Biografía</a>
+      <a href="#lanzamientos" data-i18n="nav_releases" class="block py-1 text-zinc-200 hover:text-gold">Lanzamientos</a>
+      <a href="#merch" data-i18n="nav_merch" class="block py-1 text-zinc-200 hover:text-gold">Merch</a>
+      <a href="#galeria" data-i18n="nav_gallery" class="block py-1 text-zinc-200 hover:text-gold">Galería</a>
+      <a href="#videos" data-i18n="nav_videos" class="block py-1 text-zinc-200 hover:text-gold">Videos</a>
+      <a href="#contacto" data-i18n="nav_contact" class="block py-2 text-gold font-bold">Contacto</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="pt-12 pb-20 lg:pt-16 lg:pb-28">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-crimson/15 border border-crimson/40 text-goldSoft text-xs font-medium tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>
+          <span data-i18n="hero_badge">Sierreño · Norteño · Edición Oficial</span>
+        </div>
+
+        <div class="pt-1">
+          <img
+            src="assets/logo-perdidos.png"
+            alt="Los Perdidos De Sinaloa"
+            onerror="this.style.display='none'; document.getElementById('heroFallback').classList.remove('hidden');"
+            class="w-full max-w-xl h-auto object-contain drop-shadow-[0_14px_34px_rgba(224,176,56,0.3)]"
+          />
+          <h1 id="heroFallback" class="hidden font-ornate font-black text-4xl sm:text-6xl gold-text">
+            PERDIDOS DE SINALOA
+          </h1>
+        </div>
+
+        <p data-i18n="hero_subtitle" class="font-display text-xl sm:text-2xl text-zinc-100 font-bold max-w-xl leading-snug">
+          El sentimiento sierreño y norteño que conecta de costa a costa.
+        </p>
+
+        <p data-i18n="hero_desc" class="text-zinc-400 text-sm sm:text-base max-w-xl leading-relaxed">
+          Con trayectoria forjada entre Sinaloa, la frontera y escenarios de México y Estados Unidos, Los Perdidos de Sinaloa unen letras llegadoras, requinto y presencia escénica en cada presentación.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#lanzamientos" data-i18n="hero_cta_music" class="px-7 py-3.5 rounded-full bg-gradient-to-r from-gold to-goldSoft text-obsidian font-bold text-xs uppercase tracking-[0.18em] hover:brightness-110 transition shadow-lg shadow-gold/25">
+            Top Tracks
+          </a>
+          <a href="#merch" data-i18n="hero_cta_merch" class="px-7 py-3.5 rounded-full border border-gold/35 text-goldSoft hover:bg-gold/10 transition text-xs uppercase tracking-[0.18em] font-semibold">
+            Tienda Oficial
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 relative flex justify-center">
+        <div class="relative w-full max-w-md">
+          <div class="absolute -inset-4 blob-crimson bg-gradient-to-tr from-crimson/40 via-gold/20 to-transparent blur-xl"></div>
+          <div class="relative blob-gold overflow-hidden border-2 border-gold/40 bg-surface aspect-square flex items-center justify-center shadow-2xl">
+            <img
+              src="assets/portada.jpg"
+              alt="Los Perdidos De Sinaloa - Lo Sé"
+              onerror="this.style.display='none'; document.getElementById('heroCoverMsg').classList.remove('hidden');"
+              class="w-full h-full object-cover scale-105"
+            />
+            <div id="heroCoverMsg" class="hidden p-8 text-center space-y-2">
+              <p class="font-ornate text-2xl font-black gold-text">LO SÉ</p>
+              <p class="text-xs text-zinc-400">Guarda la portada en <span class="text-goldSoft">assets/portada.jpg</span></p>
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between px-4 text-xs text-zinc-400">
+            <div class="flex items-center gap-2">
+              <img src="assets/logo-lo-se.png" alt="Lo Sé" onerror="this.style.display='none'" class="h-6 w-auto object-contain" />
+              <span data-i18n="hero_palette"></span>
+            </div>
+            <span class="text-goldSoft font-semibold">22 Álbumes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CINTA DE DISCOGRAFÍA COMPLETA -->
+  <div class="border-y border-gold/20 bg-surface/75 py-4 overflow-hidden">
+    <div class="discography-marquee gap-8 text-xs uppercase tracking-[0.24em] font-display text-goldSoft">
+      <span>Soy Lo Que Soy</span><span class="text-crimson">✦</span>
+      <span>El Luchón</span><span class="text-crimson">✦</span>
+      <span>Te Vas</span><span class="text-crimson">✦</span>
+      <span>Un Desengaño</span><span class="text-crimson">✦</span>
+      <span>En Vivo Desde Las Pulgas de Tijuana</span><span class="text-crimson">✦</span>
+      <span>En Vivo Desde Los Mochis</span><span class="text-crimson">✦</span>
+      <span>No La Hagas Sufrir</span><span class="text-crimson">✦</span>
+      <span>Tres Botes</span><span class="text-crimson">✦</span>
+      <span>En Vivo</span><span class="text-crimson">✦</span>
+      <span>Lo Sé</span><span class="text-crimson">✦</span>
+      <span>Ya Duele Menos</span><span class="text-crimson">✦</span>
+      <span>Duetos Del Rancho Para El Mundo</span><span class="text-crimson">✦</span>
+      <span>Renacido Tour 2023</span><span class="text-crimson">✦</span>
+      <span>Dariel Party, Vol. 1</span><span class="text-crimson">✦</span>
+      <span>Vuelvo A Emborracharme</span><span class="text-crimson">✦</span>
+      <span>Perdona (Estudio)</span><span class="text-crimson">✦</span>
+      <span>Perdidos en el Alcohol (En Vivo)</span><span class="text-crimson">✦</span>
+      <span>La Borrachera Del Pacífico (En Vivo)</span><span class="text-crimson">✦</span>
+      <span>En Vivo Desde Tijuana</span><span class="text-crimson">✦</span>
+      <span>Una Explicación</span><span class="text-crimson">✦</span>
+      <span>Puras Pa Bailar (En Vivo)</span><span class="text-crimson">✦</span>
+      <span>Hasta Que Se Apagó El Carbón...</span><span class="text-crimson">✦</span>
+
+      <span>Soy Lo Que Soy</span><span class="text-crimson">✦</span>
+      <span>El Luchón</span><span class="text-crimson">✦</span>
+      <span>Te Vas</span><span class="text-crimson">✦</span>
+      <span>Un Desengaño</span><span class="text-crimson">✦</span>
+      <span>En Vivo Desde Las Pulgas de Tijuana</span><span class="text-crimson">✦</span>
+      <span>En Vivo Desde Los Mochis</span><span class="text-crimson">✦</span>
+      <span>No La Hagas Sufrir</span><span class="text-crimson">✦</span>
+      <span>Tres Botes</span><span class="text-crimson">✦</span>
+      <span>En Vivo</span><span class="text-crimson">✦</span>
+      <span>Lo Sé</span><span class="text-crimson">✦</span>
+      <span>Ya Duele Menos</span><span class="text-crimson">✦</span>
+      <span>Duetos Del Rancho Para El Mundo</span><span class="text-crimson">✦</span>
+      <span>Renacido Tour 2023</span><span class="text-crimson">✦</span>
+      <span>Dariel Party, Vol. 1</span><span class="text-crimson">✦</span>
+      <span>Vuelvo A Emborracharme</span><span class="text-crimson">✦</span>
+      <span>Perdona (Estudio)</span><span class="text-crimson">✦</span>
+      <span>Perdidos en el Alcohol (En Vivo)</span><span class="text-crimson">✦</span>
+      <span>La Borrachera Del Pacífico (En Vivo)</span><span class="text-crimson">✦</span>
+      <span>En Vivo Desde Tijuana</span><span class="text-crimson">✦</span>
+      <span>Una Explicación</span><span class="text-crimson">✦</span>
+      <span>Puras Pa Bailar (En Vivo)</span><span class="text-crimson">✦</span>
+      <span>Hasta Que Se Apagó El Carbón...</span><span class="text-crimson">✦</span>
+    </div>
+  </div>
+
+  <!-- BIOGRAFÍA -->
+  <section id="biografia" class="py-24">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
+        <span data-i18n="bio_tag" class="text-xs uppercase tracking-[0.25em] text-crimson font-bold">Biografía</span>
+        <h2 data-i18n="bio_title" class="font-display text-3xl sm:text-5xl font-extrabold leading-tight">
+          Raíces de Sinaloa, <span class="gold-text">camino de frontera.</span>
+        </h2>
+        <p data-i18n="bio_intro" class="text-zinc-400 text-sm sm:text-base leading-relaxed">
+          Con raíces vinculadas a Sinaloa y consolidación en Tijuana, Baja California, Los Perdidos de Sinaloa construyeron su identidad desde presentaciones cercanas hasta escenarios en México y Estados Unidos.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 space-y-6">
+        <div class="luxury-fluid p-7 sm:p-8">
+          <p data-i18n="bio_c1_tag" class="text-xs uppercase tracking-[0.2em] text-goldSoft font-semibold mb-2">Orígenes</p>
+          <h3 data-i18n="bio_c1_title" class="font-display text-xl sm:text-2xl font-bold mb-3">De la escena local al público masivo</h3>
+          <p data-i18n="bio_c1_desc" class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+            Encabezados por Dariel Ramírez en la voz principal y requinto/guitarra, el proyecto dio sus primeros pasos tocando en restaurantes y reuniones locales en Tijuana, ganándose el respaldo de la audiencia por su estilo directo y emotivo.
+          </p>
+        </div>
+
+        <div class="luxury-fluid p-7 sm:p-8">
+          <p data-i18n="bio_c2_tag" class="text-xs uppercase tracking-[0.2em] text-crimson font-semibold mb-2">Trayectoria y discografía</p>
+          <h3 data-i18n="bio_c2_title" class="font-display text-xl sm:text-2xl font-bold mb-3">Más de 20 producciones en estudio y en vivo</h3>
+          <p data-i18n="bio_c2_desc" class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+            Con álbumes como Soy Lo Que Soy, El Luchón, Tres Botes, Lo Sé, Ya Duele Menos, Duetos Del Rancho Para El Mundo y grabaciones en vivo desde Tijuana y Los Mochis, consolidaron un catálogo sólido dentro del regional mexicano.
+          </p>
+        </div>
+
+        <div class="luxury-fluid p-7 sm:p-8">
+          <p data-i18n="bio_c3_tag" class="text-xs uppercase tracking-[0.2em] text-goldSoft font-semibold mb-2">Etapa actual</p>
+          <h3 data-i18n="bio_c3_title" class="font-display text-xl sm:text-2xl font-bold mb-3">Presente en giras y plataformas digitales</h3>
+          <p data-i18n="bio_c3_desc" class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+            Tras giras como Renacido Tour y producciones recientes como Dariel Party Vol. 1, Una Explicación y Hasta Que Se Apagó El Carbón..., mantienen activa la conexión con millones de oyentes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANZAMIENTOS / TOP TRACKS CON SPOTIFY REAL -->
+  <section id="lanzamientos" class="py-24 bg-surface/45 border-y border-gold/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span data-i18n="rel_tag" class="text-xs uppercase tracking-[0.25em] text-goldSoft font-bold">Lanzamientos · Spotify Oficial</span>
+          <h2 data-i18n="rel_title" class="font-display text-3xl sm:text-5xl font-extrabold mt-2">Top Tracks &amp; Álbumes</h2>
+        </div>
+        <p data-i18n="rel_hint" class="text-sm text-zinc-400 max-w-md">
+          Haz clic en cualquier lanzamiento para cargarlo en el reproductor de Spotify o abrirlo en la app.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-5 luxury-fluid p-4 sm:p-6 divide-y divide-white/10">
+          <button
+            type="button"
+            data-embed="https://open.spotify.com/embed/album/4KjidavoaeYpYJK8rmYgWp?utm_source=generator"
+            data-url="https://open.spotify.com/intl-es/album/4KjidavoaeYpYJK8rmYgWp?si=k2jZc73qRXu6bx2rJNrdCQ"
+            data-title="Lo Sé (Álbum)"
+            class="spotify-track w-full py-4 px-3 flex items-center justify-between text-left bg-white/5 rounded-2xl transition group cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="font-display font-bold text-gold text-sm w-6">01</span>
+              <div>
+                <p class="font-semibold text-white group-hover:text-goldSoft transition">Lo Sé</p>
+                <p class="text-xs text-zinc-400">Álbum en Spotify</p>
+              </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-gold font-semibold">Play</span>
+          </button>
+
+          <button
+            type="button"
+            data-embed="https://open.spotify.com/embed/track/2ErcAT3XaLgIoxL3oIU5Te?utm_source=generator"
+            data-url="https://open.spotify.com/intl-es/track/2ErcAT3XaLgIoxL3oIU5Te?si=abea331486054444"
+            data-title="Lo Que Yo Sentía"
+            class="spotify-track w-full py-4 px-3 flex items-center justify-between text-left hover:bg-white/5 rounded-2xl transition group cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="font-display font-bold text-gold text-sm w-6">02</span>
+              <div>
+                <p class="font-semibold text-white group-hover:text-goldSoft transition">Lo Que Yo Sentía</p>
+                <p class="text-xs text-zinc-400">Canción en Spotify</p>
+              </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-zinc-400 group-hover:text-gold">Play</span>
+          </button>
+
+          <button
+            type="button"
+            data-embed="https://open.spotify.com/embed/track/0nvXL0x4NISFWRoLNfZK4U?utm_source=generator"
+            data-url="https://open.spotify.com/intl-es/track/0nvXL0x4NISFWRoLNfZK4U?si=875509cefda74610"
+            data-title="Invéntame"
+            class="spotify-track w-full py-4 px-3 flex items-center justify-between text-left hover:bg-white/5 rounded-2xl transition group cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="font-display font-bold text-gold text-sm w-6">03</span>
+              <div>
+                <p class="font-semibold text-white group-hover:text-goldSoft transition">Invéntame</p>
+                <p class="text-xs text-zinc-400">Canción en Spotify</p>
+              </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-zinc-400 group-hover:text-gold">Play</span>
+          </button>
+
+          <button
+            type="button"
+            data-embed="https://open.spotify.com/embed/track/6E5PU4i61dEahmW37mTtk9?utm_source=generator"
+            data-url="https://open.spotify.com/intl-es/track/6E5PU4i61dEahmW37mTtk9?si=f29f8878f7fe4dbd"
+            data-title="Te Vas"
+            class="spotify-track w-full py-4 px-3 flex items-center justify-between text-left hover:bg-white/5 rounded-2xl transition group cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="font-display font-bold text-gold text-sm w-6">04</span>
+              <div>
+                <p class="font-semibold text-white group-hover:text-goldSoft transition">Te Vas</p>
+                <p class="text-xs text-zinc-400">Canción en Spotify</p>
+              </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-zinc-400 group-hover:text-gold">Play</span>
+          </button>
+
+          <button
+            type="button"
+            data-embed="https://open.spotify.com/embed/album/51n0ozzAIBKpsXxTch4M50?utm_source=generator"
+            data-url="https://open.spotify.com/intl-es/album/51n0ozzAIBKpsXxTch4M50?si=8RvBobKzRzC_0vruhTgy6w"
+            data-title="Hasta Que Se Apagó El Carbón"
+            class="spotify-track w-full py-4 px-3 flex items-center justify-between text-left hover:bg-white/5 rounded-2xl transition group cursor-pointer"
+          >
+            <div class="flex items-center gap-4">
+              <span class="font-display font-bold text-crimson text-sm w-6">05</span>
+              <div>
+                <p class="font-semibold text-white group-hover:text-goldSoft transition">Hasta Que Se Apagó El Carbón</p>
+                <p class="text-xs text-zinc-400">Álbum en Spotify</p>
+              </div>
+            </div>
+            <span class="text-xs uppercase tracking-widest text-zinc-400 group-hover:text-gold">Play</span>
+          </button>
+        </div>
+
+        <div class="lg:col-span-7 luxury-fluid p-6 sm:p-8 space-y-4">
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <span class="text-[11px] uppercase tracking-[0.22em] text-crimson font-bold">Spotify Player</span>
+              <h3 id="spotifyActiveTitle" class="font-display text-xl sm:text-2xl font-extrabold gold-text">Lo Sé (Álbum)</h3>
+            </div>
+            <a id="spotifyExternalLink" href="https://open.spotify.com/intl-es/album/4KjidavoaeYpYJK8rmYgWp?si=k2jZc73qRXu6bx2rJNrdCQ" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full border border-gold/35 text-xs text-goldSoft hover:bg-gold hover:text-obsidian font-semibold transition">
+              Abrir Spotify ↗
+            </a>
+          </div>
+
+          <iframe
+            id="spotifyIframe"
+            style="border-radius:18px"
+            src="https://open.spotify.com/embed/album/4KjidavoaeYpYJK8rmYgWp?utm_source=generator"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIENDA EN LÍNEA MERCH (assets/merch/gorra1.jpg, playera1.jpg, hoddie1.jpg, pack1.jpg) -->
+  <section id="merch" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span data-i18n="merch_tag" class="text-xs uppercase tracking-[0.25em] text-crimson font-bold">Tienda Oficial · assets/merch</span>
+          <h2 data-i18n="merch_title" class="font-display text-3xl sm:text-5xl font-extrabold mt-2">Merchandising</h2>
+        </div>
+        
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- gorra1.jpg -->
+        <div class="luxury-fluid p-5 flex flex-col justify-between gap-5">
+          <div>
+            <div class="h-52 rounded-2xl bg-gradient-to-br from-zinc-900 via-obsidian to-gold/15 border border-gold/20 overflow-hidden relative flex items-center justify-center">
+              <img
+                src="assets/merch/gorra1.jpg"
+                alt="Gorra Oficial Perdidos"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/gorra1.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}"
+                class="w-full h-full object-cover"
+              />
+              <div class="hidden p-4 text-center">
+                <p class="font-ornate text-base font-black gold-text">gorra1.jpg</p>
+                <p class="text-[11px] text-zinc-400 mt-1">Coloca el archivo en assets/merch/gorra1.jpg</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-2">
+              <h3 data-i18n="prod1_name" class="font-display font-bold text-base">Gorra Oficial Perdidos</h3>
+              <span class="font-display font-extrabold text-goldSoft">$650 MXN</span>
+            </div>
+            <p data-i18n="prod1_desc" class="text-xs text-zinc-400 mt-1"><code class="text-zinc-300"></code></p>
+          </div>
+          <button type="button" data-product="Gorra Oficial Perdidos" data-price="650" class="add-cart-btn w-full py-2.5 rounded-full border border-gold/40 text-goldSoft text-xs uppercase tracking-widest font-bold hover:bg-gold hover:text-obsidian transition cursor-pointer">
+            <span data-i18n="add_to_cart">Agregar al carrito</span>
+          </button>
+        </div>
+
+        <!-- playera1.jpg -->
+        <div class="luxury-fluid p-5 flex flex-col justify-between gap-5">
+          <div>
+            <div class="h-52 rounded-2xl bg-gradient-to-br from-zinc-900 via-obsidian to-crimson/20 border border-gold/20 overflow-hidden relative flex items-center justify-center">
+              <img
+                src="assets/merch/playera1.jpg"
+                alt="Playera Tour Lo Sé"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/playera1.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}"
+                class="w-full h-full object-cover"
+              />
+              <div class="hidden p-4 text-center">
+                <p class="font-ornate text-base font-black gold-text">playera1.jpg</p>
+                <p class="text-[11px] text-zinc-400 mt-1">Coloca el archivo en assets/merch/playera1.jpg</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-2">
+              <h3 data-i18n="prod2_name" class="font-display font-bold text-base">Playera Tour Lo Sé</h3>
+              <span class="font-display font-extrabold text-goldSoft">$550 MXN</span>
+            </div>
+            <p data-i18n="prod2_desc" class="text-xs text-zinc-400 mt-1"><code class="text-zinc-300"></code></p>
+          </div>
+          <button type="button" data-product="Playera Tour Lo Sé" data-price="550" class="add-cart-btn w-full py-2.5 rounded-full border border-gold/40 text-goldSoft text-xs uppercase tracking-widest font-bold hover:bg-gold hover:text-obsidian transition cursor-pointer">
+            <span data-i18n="add_to_cart">Agregar al carrito</span>
+          </button>
+        </div>
+
+        <!-- hoddie1.jpg -->
+        <div class="luxury-fluid p-5 flex flex-col justify-between gap-5">
+          <div>
+            <div class="h-52 rounded-2xl bg-gradient-to-br from-zinc-900 via-obsidian to-gold/15 border border-gold/20 overflow-hidden relative flex items-center justify-center">
+              <img
+                src="assets/merch/hoddie1.jpg"
+                alt="Sudadera Oficial"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/hoddie1.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}"
+                class="w-full h-full object-cover"
+              />
+              <div class="hidden p-4 text-center">
+                <p class="font-ornate text-base font-black gold-text">hoddie1.jpg</p>
+                <p class="text-[11px] text-zinc-400 mt-1">Coloca el archivo en assets/merch/hoddie1.jpg</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-2">
+              <h3 data-i18n="prod3_name" class="font-display font-bold text-base">Sudadera Renacido</h3>
+              <span class="font-display font-extrabold text-goldSoft">$1,150 MXN</span>
+            </div>
+            <p data-i18n="prod3_desc" class="text-xs text-zinc-400 mt-1"><code class="text-zinc-300"></code></p>
+          </div>
+          <button type="button" data-product="Sudadera Renacido" data-price="1150" class="add-cart-btn w-full py-2.5 rounded-full border border-gold/40 text-goldSoft text-xs uppercase tracking-widest font-bold hover:bg-gold hover:text-obsidian transition cursor-pointer">
+            <span data-i18n="add_to_cart">Agregar al carrito</span>
+          </button>
+        </div>
+
+        <!-- pack1.jpg -->
+        <div class="luxury-fluid p-5 flex flex-col justify-between gap-5">
+          <div>
+            <div class="h-52 rounded-2xl bg-gradient-to-br from-zinc-900 via-obsidian to-crimson/20 border border-gold/20 overflow-hidden relative flex items-center justify-center">
+              <img
+                src="assets/merch/pack1.jpg"
+                alt="Pack Colección Oficial"
+                onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/pack1.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}"
+                class="w-full h-full object-cover"
+              />
+              <div class="hidden p-4 text-center">
+                <p class="font-ornate text-base font-black gold-text">pack1.jpg</p>
+                <p class="text-[11px] text-zinc-400 mt-1">Coloca el archivo en assets/merch/pack1.jpg</p>
+              </div>
+            </div>
+            <div class="mt-4 flex items-start justify-between gap-2">
+              <h3 data-i18n="prod4_name" class="font-display font-bold text-base">Pack Oficial Fan</h3>
+              <span class="font-display font-extrabold text-goldSoft">$1,090 MXN</span>
+            </div>
+            <p data-i18n="prod4_desc" class="text-xs text-zinc-400 mt-1"><code class="text-zinc-300"></code></p>
+          </div>
+          <button type="button" data-product="Pack Oficial Fan" data-price="1090" class="add-cart-btn w-full py-2.5 rounded-full border border-gold/40 text-goldSoft text-xs uppercase tracking-widest font-bold hover:bg-gold hover:text-obsidian transition cursor-pointer">
+            <span data-i18n="add_to_cart">Agregar al carrito</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE 6 IMÁGENES (img1.jpg a img6.jpg) -->
+  <section id="galeria" class="py-24 bg-surface/45 border-y border-gold/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <span data-i18n="gal_tag" class="text-xs uppercase tracking-[0.25em] text-goldSoft font-bold">Galería · assets/galeria</span>
+          <h2 data-i18n="gal_title" class="font-display text-3xl sm:text-5xl font-extrabold mt-2">Postales &amp; Escenario</h2>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="luxury-fluid p-4">
+          <div class="aspect-[4/3] rounded-2xl bg-obsidian/90 border border-gold/15 overflow-hidden flex items-center justify-center">
+            <img src="assets/galeria/img1.jpg" alt="Galería 1" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/img1.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}" class="w-full h-full object-cover" />
+            <span class="hidden font-display text-sm text-goldSoft">assets/galeria/img1.jpeg</span>
+          </div>
+          <p class="text-xs text-zinc-400 mt-3 px-1">Los Perdidos De Sinaloa</p>
+        </div>
+
+        <div class="luxury-fluid p-4">
+          <div class="aspect-[4/3] rounded-2xl bg-obsidian/90 border border-gold/15 overflow-hidden flex items-center justify-center">
+            <img src="assets/galeria/img2.jpg" alt="Galería 2" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/img2.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}" class="w-full h-full object-cover" />
+            <span class="hidden font-display text-sm text-goldSoft">assets/galeria/img2.jpg</span>
+          </div>
+          <p class="text-xs text-zinc-400 mt-3 px-1">Los Perdidos De Sinaloa</p>
+        </div>
+
+        <div class="luxury-fluid p-4">
+          <div class="aspect-[4/3] rounded-2xl bg-obsidian/90 border border-gold/15 overflow-hidden flex items-center justify-center">
+            <img src="assets/galeria/img3.jpg" alt="Galería 3" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/img3.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}" class="w-full h-full object-cover" />
+            <span class="hidden font-display text-sm text-goldSoft">assets/galeria/img3.jpg</span>
+          </div>
+          <p class="text-xs text-zinc-400 mt-3 px-1">Los Perdidos De Sinaloa</p>
+        </div>
+
+        <div class="luxury-fluid p-4">
+          <div class="aspect-[4/3] rounded-2xl bg-obsidian/90 border border-gold/15 overflow-hidden flex items-center justify-center">
+            <img src="assets/galeria/img4.jpg" alt="Galería 4" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/img4.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}" class="w-full h-full object-cover" />
+            <span class="hidden font-display text-sm text-goldSoft">assets/galeria/img4.jpg</span>
+          </div>
+          <p class="text-xs text-zinc-400 mt-3 px-1">Los Perdidos De Sinaloa</p>
+        </div>
+
+        <div class="luxury-fluid p-4">
+          <div class="aspect-[4/3] rounded-2xl bg-obsidian/90 border border-gold/15 overflow-hidden flex items-center justify-center">
+            <img src="assets/galeria/img5.jpg" alt="Galería 5" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/img5.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}" class="w-full h-full object-cover" />
+            <span class="hidden font-display text-sm text-goldSoft">assets/galeria/img5.jpg</span>
+          </div>
+          <p class="text-xs text-zinc-400 mt-3 px-1">Los Perdidos De Sinaloa</p>
+        </div>
+
+        <div class="luxury-fluid p-4">
+          <div class="aspect-[4/3] rounded-2xl bg-obsidian/90 border border-gold/15 overflow-hidden flex items-center justify-center">
+            <img src="assets/galeria/img6.jpg" alt="Galería 6" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/img6.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}" class="w-full h-full object-cover" />
+            <span class="hidden font-display text-sm text-goldSoft">assets/galeria/img6.jpg</span>
+          </div>
+          <p class="text-xs text-zinc-400 mt-3 px-1">Los Perdidos De Sinaloa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE 3 VIDEOS DE YOUTUBE -->
+  <section id="videos" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mb-12">
+        <span data-i18n="vid_tag" class="text-xs uppercase tracking-[0.25em] text-crimson font-bold">YouTube · En Vivo &amp; Videos</span>
+        <h2 data-i18n="vid_title" class="font-display text-3xl sm:text-5xl font-extrabold mt-2">Videos Destacados</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="luxury-fluid p-4 space-y-3">
+          <div class="aspect-video rounded-2xl overflow-hidden border border-gold/20 bg-black">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/S9uR8Lj5xFM"
+              title="Perdidos de Sinaloa - Lo que yo sentía"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <h3 class="font-display font-bold text-base px-1">Lo Que Yo Sentía · Video Oficial</h3>
+        </div>
+
+        <div class="luxury-fluid p-4 space-y-3">
+          <div class="aspect-video rounded-2xl overflow-hidden border border-gold/20 bg-black">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/NZRWyYAFg9c"
+              title="Perdidos de Sinaloa - En Vivo desde Los Cabos"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <h3 class="font-display font-bold text-base px-1">En Vivo Desde Los Cabos</h3>
+        </div>
+
+        <div class="luxury-fluid p-4 space-y-3">
+          <div class="aspect-video rounded-2xl overflow-hidden border border-gold/20 bg-black">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/iOBQnD8s9Vc"
+              title="Los Perdidos de Sinaloa en vivo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <h3 class="font-display font-bold text-base px-1">Presentación Especial En Vivo</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-24 bg-surface/50 border-t border-gold/10">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-10 space-y-2">
+        <span data-i18n="contact_tag" class="text-xs uppercase tracking-[0.25em] text-crimson font-bold">Contacto</span>
+        <h2 data-i18n="contact_title" class="font-display text-3xl sm:text-5xl font-extrabold">Contrataciones &amp; Prensa</h2>
+        <p data-i18n="contact_sub" class="text-sm text-zinc-400">Formulario de muestra para promotores, recintos y medios.</p>
+      </div>
+
+      <form id="contactForm" class="luxury-fluid p-7 sm:p-10 space-y-5">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label data-i18n="form_name" class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Nombre / Promotora</label>
+            <input type="text" required placeholder="Ej. Promotora Norte" class="w-full px-4 py-3 rounded-2xl bg-obsidian/90 border border-white/10 text-sm text-white focus:border-gold focus:outline-none">
+          </div>
+          <div>
+            <label data-i18n="form_email" class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Correo Electrónico</label>
+            <input type="email" required placeholder="contacto@ejemplo.com" class="w-full px-4 py-3 rounded-2xl bg-obsidian/90 border border-white/10 text-sm text-white focus:border-gold focus:outline-none">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label data-i18n="form_city" class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Ciudad / Estado</label>
+            <input type="text" required placeholder="Ej. Mexicali, B.C." class="w-full px-4 py-3 rounded-2xl bg-obsidian/90 border border-white/10 text-sm text-white focus:border-gold focus:outline-none">
+          </div>
+          <div>
+            <label data-i18n="form_subject" class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Asunto</label>
+            <select class="w-full px-4 py-3 rounded-2xl bg-obsidian/90 border border-white/10 text-sm text-white focus:border-gold focus:outline-none">
+              <option>Contratación / Booking</option>
+              <option>Prensa y Medios</option>
+              <option>Colaboraciones</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label data-i18n="form_msg" class="block text-xs uppercase tracking-wider text-zinc-400 mb-2">Detalles del Evento o Mensaje</label>
+          <textarea rows="4" required placeholder="Comparte fecha aproximada, ciudad o detalles de tu solicitud..." class="w-full px-4 py-3 rounded-2xl bg-obsidian/90 border border-white/10 text-sm text-white focus:border-gold focus:outline-none"></textarea>
+        </div>
+
+        <button type="submit" data-i18n="form_submit" class="w-full py-4 rounded-full bg-gradient-to-r from-gold to-goldSoft text-obsidian font-bold text-xs uppercase tracking-[0.2em] hover:brightness-110 transition cursor-pointer">
+          Enviar Mensaje de Muestra
+        </button>
+
+        <p id="formConfirmation" data-i18n="form_ok" class="hidden text-center text-xs text-emerald-400 font-medium">
+          Muestra funcional: mensaje registrado correctamente en la vista previa local.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- CARRITO MERCH -->
+  <div id="cartDrawer" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex justify-end">
+    <div class="w-full max-w-md bg-surface border-l border-gold/25 h-full p-6 flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between border-b border-white/10 pb-4">
+          <h3 data-i18n="cart_title" class="font-display text-xl font-extrabold gold-text">Carrito Merch Oficial</h3>
+          <button id="closeCartBtn" class="p-2 rounded-full border border-white/15 text-zinc-400 hover:text-white">✕</button>
+        </div>
+        <div id="cartItemsList" class="py-6 space-y-3 text-sm text-zinc-300">
+          <p data-i18n="cart_empty" class="text-zinc-500 text-xs">Tu carrito está vacío.</p>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 pt-4 space-y-4">
+        <div class="flex items-center justify-between text-sm">
+          <span data-i18n="cart_total" class="text-zinc-400">Total estimado:</span>
+          <span id="cartTotal" class="font-display font-extrabold text-lg text-goldSoft">$0 MXN</span>
+        </div>
+        <button id="checkoutDemoBtn" data-i18n="cart_checkout" class="w-full py-3.5 rounded-full bg-gradient-to-r from-gold to-goldSoft text-obsidian font-bold text-xs uppercase tracking-widest hover:brightness-110 transition">
+          Finalizar Compra (Demo)
+        </button>
+        <p id="checkoutFeedback" class="hidden text-xs text-emerald-400 text-center">Orden de muestra simulada con éxito.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER CON DERECHOS DE AUTOR -->
+  <footer class="border-t border-gold/20 py-10 text-xs text-zinc-400 bg-obsidian/90">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo-perdidos.png" alt="Los Perdidos De Sinaloa" onerror="this.style.display='none'" class="h-7 w-auto object-contain" />
+        <span class="font-ornate font-bold text-goldSoft">Los Perdidos De Sinaloa</span>
+      </div>
+      <p data-i18n="footer_rights" class="text-zinc-300 font-medium">
+        © 2026 Todos los derechos reservados · Diseñada por <span class="text-goldSoft font-bold">Julio C. Castro</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      es: {
+        top_location: "Sinaloa · Frontera · EE. UU.",
+        nav_home: "Inicio",
+        nav_bio: "Biografía",
+        nav_releases: "Lanzamientos",
+        nav_merch: "Merch",
+        nav_gallery: "Galería",
+        nav_videos: "Videos",
+        nav_contact: "Contacto",
+        hero_badge: "Sierreño · Norteño · Edición Oficial",
+        hero_subtitle: "El sentimiento sierreño y norteño que conecta de costa a costa.",
+        hero_desc: "Con trayectoria forjada entre Sinaloa, la frontera y escenarios de México y Estados Unidos, Los Perdidos de Sinaloa unen letras llegadoras, requinto y presencia escénica en cada presentación.",
+        hero_cta_music: "Top Tracks",
+        hero_cta_merch: "Tienda Oficial",
+        hero_palette: "Edición Dorado & Carmesí",
+        bio_tag: "Biografía",
+        bio_title: 'Raíces de Sinaloa, <span class="gold-text">camino de frontera.</span>',
+        bio_intro: "Con raíces vinculadas a Sinaloa y consolidación en Tijuana, Baja California, Los Perdidos de Sinaloa construyeron su identidad desde presentaciones cercanas hasta escenarios en México y Estados Unidos.",
+        bio_c1_tag: "Orígenes",
+        bio_c1_title: "De la escena local al público masivo",
+        bio_c1_desc: "Encabezados por Dariel Ramírez en la voz principal y requinto/guitarra, el proyecto dio sus primeros pasos tocando en restaurantes y reuniones locales en Tijuana, ganándose el respaldo de la audiencia por su estilo directo y emotivo.",
+        bio_c2_tag: "Trayectoria y discografía",
+        bio_c2_title: "Más de 20 producciones en estudio y en vivo",
+        bio_c2_desc: "Con álbumes como Soy Lo Que Soy, El Luchón, Tres Botes, Lo Sé, Ya Duele Menos, Duetos Del Rancho Para El Mundo y grabaciones en vivo desde Tijuana y Los Mochis, consolidaron un catálogo sólido dentro del regional mexicano.",
+        bio_c3_tag: "Etapa actual",
+        bio_c3_title: "Presente en giras y plataformas digitales",
+        bio_c3_desc: "Tras giras como Renacido Tour y producciones recientes como Dariel Party Vol. 1, Una Explicación y Hasta Que Se Apagó El Carbón..., mantienen activa la conexión con millones de oyentes.",
+        rel_tag: "Lanzamientos · Spotify Oficial",
+        rel_title: "Top Tracks & Álbumes",
+        rel_hint: "Haz clic en cualquier lanzamiento para cargarlo en el reproductor de Spotify o abrirlo en la app.",
+        merch_tag: "Tienda Oficial · assets/merch",
+        merch_title: "Merchandising",
+        merch_sub: 'Guarda tus fotos en <code class="text-goldSoft">assets/merch/</code> como <code class="text-goldSoft">gorra1.jpg</code>, <code class="text-goldSoft">playera1.jpg</code>, <code class="text-goldSoft">hoddie1.jpg</code> y <code class="text-goldSoft">pack1.jpg</code>.',
+        prod1_name: "Gorra Oficial Perdidos",
+        prod1_desc: 'Archivo: <code class="text-zinc-300">assets/merch/gorra1.jpg</code>',
+        prod2_name: "Playera Tour Lo Sé",
+        prod2_desc: 'Archivo: <code class="text-zinc-300">assets/merch/playera1.jpg</code>',
+        prod3_name: "Sudadera Renacido",
+        prod3_desc: 'Archivo: <code class="text-zinc-300">assets/merch/hoddie1.jpg</code>',
+        prod4_name: "Pack Oficial Fan",
+        prod4_desc: 'Archivo: <code class="text-zinc-300">assets/merch/pack1.jpg</code>',
+        add_to_cart: "Agregar al carrito",
+        gal_tag: "Galería · assets/galeria",
+        gal_title: "Postales & Escenario",
+        gal_sub: 'Guarda tus fotos como <code class="text-goldSoft">img1.jpg</code>, <code class="text-goldSoft">img2.jpg</code>, <code class="text-goldSoft">img3.jpg</code>, <code class="text-goldSoft">img4.jpg</code>, <code class="text-goldSoft">img5.jpg</code> y <code class="text-goldSoft">img6.jpg</code> en <code class="text-goldSoft">assets/galeria/</code>.',
+        vid_tag: "YouTube · En Vivo & Videos",
+        vid_title: "Videos Destacados",
+        contact_tag: "Contacto",
+        contact_title: "Contrataciones & Prensa",
+        contact_sub: "Formulario de muestra para promotores, recintos y medios.",
+        form_name: "Nombre / Promotora",
+        form_email: "Correo Electrónico",
+        form_city: "Ciudad / Estado",
+        form_subject: "Asunto",
+        form_msg: "Detalles del Evento o Mensaje",
+        form_submit: "Enviar Mensaje de Muestra",
+        form_ok: "Muestra funcional: mensaje registrado correctamente en la vista previa local.",
+        cart_title: "Carrito Merch Oficial",
+        cart_empty: "Tu carrito está vacío.",
+        cart_total: "Total estimado:",
+        cart_checkout: "Finalizar Compra (Demo)",
+        footer_rights: '© 2026 Todos los derechos reservados · Diseñada por <span class="text-goldSoft font-bold">Julio C. Castro</span>'
+      },
+      en: {
+        top_location: "Sinaloa · Border · USA",
+        nav_home: "Home",
+        nav_bio: "Biography",
+        nav_releases: "Releases",
+        nav_merch: "Merch",
+        nav_gallery: "Gallery",
+        nav_videos: "Videos",
+        nav_contact: "Contact",
+        hero_badge: "Sierreño · Norteño · Official Edition",
+        hero_subtitle: "The sierreño and norteño soul connecting coast to coast.",
+        hero_desc: "Forged between Sinaloa, the borderlands, and stages across Mexico and the United States, Los Perdidos de Sinaloa blend heartfelt lyrics, requinto guitar, and commanding stage presence.",
+        hero_cta_music: "Top Tracks",
+        hero_cta_merch: "Official Store",
+        hero_palette: "Gold & Crimson Edition",
+        bio_tag: "Biography",
+        bio_title: 'Sinaloa roots, <span class="gold-text">borderland journey.</span>',
+        bio_intro: "With deep roots in Sinaloa and a breakthrough era in Tijuana, Baja California, Los Perdidos de Sinaloa rose from intimate local performances to major stages across Mexico and the United States.",
+        bio_c1_tag: "Origins",
+        bio_c1_title: "From local venues to massive crowds",
+        bio_c1_desc: "Led by Dariel Ramírez on lead vocals and requinto/guitar, the group started playing in local Tijuana restaurants and gatherings, winning audiences with an honest, emotional sound.",
+        bio_c2_tag: "Catalog & Discography",
+        bio_c2_title: "Over 20 studio and live releases",
+        bio_c2_desc: "With albums including Soy Lo Que Soy, El Luchón, Tres Botes, Lo Sé, Ya Duele Menos, Duetos Del Rancho Para El Mundo, and live recordings from Tijuana and Los Mochis, they built a benchmark Regional Mexican catalog.",
+        bio_c3_tag: "Current Era",
+        bio_c3_title: "Live touring & global streaming",
+        bio_c3_desc: "Following tours like Renacido Tour and releases such as Dariel Party Vol. 1, Una Explicación, and Hasta Que Se Apagó El Carbón..., they remain deeply connected with millions of listeners.",
+        rel_tag: "Releases · Official Spotify",
+        rel_title: "Top Tracks & Albums",
+        rel_hint: "Click any release to load it in the Spotify player or open it in the app.",
+        merch_tag: "Official Store · assets/merch",
+        merch_title: "Merchandise",
+        merch_sub: 'Save your photos in <code class="text-goldSoft">assets/merch/</code> as <code class="text-goldSoft">gorra1.jpg</code>, <code class="text-goldSoft">playera1.jpg</code>, <code class="text-goldSoft">hoddie1.jpg</code>, and <code class="text-goldSoft">pack1.jpg</code>.',
+        prod1_name: "Official Perdidos Cap",
+        prod1_desc: 'File: <code class="text-zinc-300">assets/merch/gorra1.jpg</code>',
+        prod2_name: "Lo Sé Tour Tee",
+        prod2_desc: 'File: <code class="text-zinc-300">assets/merch/playera1.jpg</code>',
+        prod3_name: "Renacido Hoodie",
+        prod3_desc: 'File: <code class="text-zinc-300">assets/merch/hoddie1.jpg</code>',
+        prod4_name: "Official Fan Pack",
+        prod4_desc: 'File: <code class="text-zinc-300">assets/merch/pack1.jpg</code>',
+        add_to_cart: "Add to cart",
+        gal_tag: "Gallery · assets/galeria",
+        gal_title: "Photos & Live Stage",
+        gal_sub: 'Save your photos as <code class="text-goldSoft">img1.jpg</code>, <code class="text-goldSoft">img2.jpg</code>, <code class="text-goldSoft">img3.jpg</code>, <code class="text-goldSoft">img4.jpg</code>, <code class="text-goldSoft">img5.jpg</code>, and <code class="text-goldSoft">img6.jpg</code> in <code class="text-goldSoft">assets/galeria/</code>.',
+        vid_tag: "YouTube · Live & Videos",
+        vid_title: "Featured Videos",
+        contact_tag: "Contact",
+        contact_title: "Booking & Press",
+        contact_sub: "Sample inquiry form for promoters, venues, and media.",
+        form_name: "Name / Promoter",
+        form_email: "Email Address",
+        form_city: "City / State",
+        form_subject: "Subject",
+        form_msg: "Event Details or Message",
+        form_submit: "Send Sample Inquiry",
+        form_ok: "Functional preview: message recorded locally.",
+        cart_title: "Official Merch Cart",
+        cart_empty: "Your cart is currently empty.",
+        cart_total: "Estimated total:",
+        cart_checkout: "Checkout (Demo)",
+        footer_rights: '© 2026 All rights reserved · Designed by <span class="text-goldSoft font-bold">Julio C. Castro</span>'
+      }
+    };
+
+    let currentLang = 'es';
+    document.getElementById('langToggle').addEventListener('click', () => {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      document.documentElement.lang = currentLang;
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
+    });
+
+    // Menú móvil
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Selector Spotify
+    const spotifyIframe = document.getElementById('spotifyIframe');
+    const spotifyActiveTitle = document.getElementById('spotifyActiveTitle');
+    const spotifyExternalLink = document.getElementById('spotifyExternalLink');
+    const spotifyButtons = document.querySelectorAll('.spotify-track');
+
+    spotifyButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        spotifyButtons.forEach((b) => b.classList.remove('bg-white/5'));
+        btn.classList.add('bg-white/5');
+        spotifyIframe.src = btn.dataset.embed;
+        spotifyActiveTitle.textContent = btn.dataset.title;
+        spotifyExternalLink.href = btn.dataset.url;
+      });
+    });
+
+    // Carrito Merch
+    const cart = [];
+    const cartDrawer = document.getElementById('cartDrawer');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartTotal = document.getElementById('cartTotal');
+    const cartCount = document.getElementById('cartCount');
+    const checkoutDemoBtn = document.getElementById('checkoutDemoBtn');
+    const checkoutFeedback = document.getElementById('checkoutFeedback');
+
+    function renderCart() {
+      cartCount.textContent = cart.length;
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `<p class="text-zinc-500 text-xs">${translations[currentLang].cart_empty}</p>`;
+        cartTotal.textContent = '$0 MXN';
+        return;
+      }
+      let sum = 0;
+      cartItemsList.innerHTML = cart.map((item, idx) => {
+        sum += item.price;
+        return `
+          <div class="flex items-center justify-between bg-obsidian/70 border border-white/10 rounded-xl px-4 py-3">
+            <div>
+              <p class="font-semibold text-white text-xs">${item.name}</p>
+              <p class="text-[11px] text-goldSoft">$${item.price} MXN</p>
+            </div>
+            <button onclick="removeCartItem(${idx})" class="text-xs text-zinc-400 hover:text-crimson">✕</button>
+          </div>
+        `;
+      }).join('');
+      cartTotal.textContent = `$${sum.toLocaleString('es-MX')} MXN`;
+    }
+
+    window.removeCartItem = (index) => {
+      cart.splice(index, 1);
+      renderCart();
+    };
+
+    document.querySelectorAll('.add-cart-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        cart.push({ name: btn.dataset.product, price: Number(btn.dataset.price) });
+        renderCart();
+        cartDrawer.classList.remove('hidden');
+      });
+    });
+
+    openCartBtn.addEventListener('click', () => cartDrawer.classList.remove('hidden'));
+    closeCartBtn.addEventListener('click', () => cartDrawer.classList.add('hidden'));
+    checkoutDemoBtn.addEventListener('click', () => {
+      if (cart.length > 0) {
+        checkoutFeedback.classList.remove('hidden');
+        cart.length = 0;
+        renderCart();
+      }
+    });
+
+    // Contacto
+    const contactForm = document.getElementById('contactForm');
+    const formConfirmation = document.getElementById('formConfirmation');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formConfirmation.classList.remove('hidden');
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
